@@ -1,5 +1,5 @@
 document.getElementById("generateBtn").addEventListener("click", function () {
-    const name = document.getElementById("name").value.trim().toUpperCase(); // Convert name to uppercase
+    const name = document.getElementById("name").value.trim(); // Use name as entered by user
     const number = parseInt(document.getElementById("number").value);
     const includeSymbols = document.getElementById("includeSymbols").checked;
     const amount = parseInt(document.getElementById("amount").value);
