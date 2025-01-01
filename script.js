@@ -14,10 +14,18 @@ document.getElementById("generateBtn").addEventListener("click", function () {
     const numberRangeStart = number < 100 ? 1 : 100; // 2-digit starts at 1, 3-digit starts at 100
     const numberRangeEnd = number < 100 ? 99 : 999; // End ranges based on 2 or 3 digits
 
+    // Function to randomize the case of each character in the name
+    function randomizeCase(str) {
+        return str.split('').map(char => {
+            return Math.random() > 0.5 ? char.toUpperCase() : char.toLowerCase();
+        }).join('');
+    }
+
     for (let i = 0; i < amount; i++) {
         const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
         const randomNumber = Math.floor(Math.random() * (numberRangeEnd - numberRangeStart + 1)) + numberRangeStart;
-        passwords.push(`${name}${randomSymbol}${randomNumber}`);
+        const randomizedName = randomizeCase(name); // Apply random case change to the name
+        passwords.push(`${randomizedName}${randomSymbol}${randomNumber}`);
     }
 
     const resultDiv = document.getElementById("result");
